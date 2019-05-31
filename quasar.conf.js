@@ -42,12 +42,15 @@ module.exports = function (ctx) {
         'QCarousel',
         'QCarouselSlide',
         'QFab',
-      'QFabAction',
-      'QCarouselControl',
-      'QPageSticky',
-      'QCard',
-      'QCardSection',
-      'QCardActions'  
+        'QFabAction',
+        'QCarouselControl',
+        'QPageSticky',
+        'QCard',
+        'QCardSection',
+        'QCardActions',
+        'QSelect',
+        'QSeparator',
+        'QInput'  
       ],
 
       directives: [

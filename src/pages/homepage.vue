@@ -1,4 +1,5 @@
 <template>
+<q-page>
 <div>
   <div class="q-pa-md">
     <q-carousel
@@ -26,6 +27,7 @@
     </q-card>
   </div>
   </div>
+  </q-page>
 </template>
 <style lang="stylus" scoped>
 .custom-caption

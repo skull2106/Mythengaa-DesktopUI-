@@ -1,80 +1,100 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
+  <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
+    <q-header elevated reveal>
+      <q-toolbar class="glossy">
         <q-btn
           flat
           dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          @click="drawer = !drawer"
           aria-label="Menu"
         >
           <q-icon name="menu" />
         </q-btn>
-
+        <q-avatar font-size="82px">
+          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+        </q-avatar>
         <q-toolbar-title>
-          Quasar App
+          Mythengaa
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-separator />
+        <div class="q-pa-md" style="max-width: 300px">
+        <q-input dark borderless standout="bg-secondary text-white" padding v-model="text" input-class="text-right" class="q-ml-md">
+          <template v-slot:append>
+            <q-icon v-if="text === ''" name="search" />
+            <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
+          </template>
+        </q-input>
+        </div>
+         <div class="q-pa-md" style="max-width: 300px">
+        <q-select rounded outlined v-model="model" :options="options" label="Location" />
+        <q-space />
+        </div>
+        <q-separator dark vertical />
+      <q-btn stretch flat label="Sign Up/Login" />
       </q-toolbar>
     </q-header>
 
     <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-2"
-    >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.com/quasarframework/">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.com/quasarframework">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
+        v-model="drawer"
 
+        :mini="miniState"
+        @mouseover="miniState = false"
+        @mouseout="miniState = true"
+
+        :width="200"
+        :breakpoint="500"
+        show-if-above
+        bordered
+        content-class="bg-grey-3"
+      >
+        <q-scroll-area class="fit">
+          <q-list padding>
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="inbox" />
+              </q-item-section>
+
+              <q-item-section>
+                Sign Up/Login
+              </q-item-section>
+            </q-item>
+
+            <q-item active clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="star" />
+              </q-item-section>
+
+              <q-item-section>
+                My Account
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="send" />
+              </q-item-section>
+
+              <q-item-section>
+                Advertise
+              </q-item-section>
+            </q-item>
+
+            <q-separator />
+
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="drafts" />
+              </q-item-section>
+
+              <q-item-section>
+                Categories
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-scroll-area>
+      </q-drawer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -88,7 +108,14 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      drawer: true,
+      miniState: true,
+      text: 'Search',
+      leftDrawerOpen: this.$q.platform.is.desktop,
+      model: null,
+      options: [
+        'Jaipur', 'Ajmer', 'Bewar', 'Jodhpur', 'Udaipur'
+      ]
     }
   },
   methods: {
