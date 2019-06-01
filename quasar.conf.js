@@ -50,7 +50,14 @@ module.exports = function (ctx) {
         'QCardActions',
         'QSelect',
         'QSeparator',
-        'QInput'  
+        'QInput',
+        'QExpansionItem',
+        'QSpace',
+        'QFooter',
+        'QList',
+      'QItem',
+      'QItemSection',
+      'QItemLabel'  
       ],
 
       directives: [
