@@ -29,7 +29,7 @@
         <q-seprator />
         <q-separator dark vertical />
         <div class="btn">
-      <q-btn stretch flat label="Sign Up/Login" />
+      <q-btn stretch flat class="d-btn" label="Sign Up/Login" @click="registration = true" />
       </div>
       </q-toolbar>
     </q-header>
@@ -49,7 +49,7 @@
       >
         <q-scroll-area class="fit">
           <q-list padding>
-          <q-item  active clickable v-ripple>
+          <q-item @click="home" active clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="home" />
               </q-item-section>
@@ -58,7 +58,7 @@
                 Home
               </q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple @click="login=true">
               <q-item-section avatar>
                 <q-icon name="mail" />
               </q-item-section>
@@ -146,16 +146,126 @@
   <div class="col3"> Property of Saurabh</div>
       </div>
     </q-page-container>
+    <q-dialog v-model="registration">
+      <div class="q-pa-md" style="max-width: 500px">
+      <div class="form">
+      <div class="heading1">
+      <q-avatar font-size="82px">
+          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+        </q-avatar>
+      Mythengaa
+      </div>
+      <q-seprator dark horizontal/>
+    <q-form
+      position="center"
+      @submit="onSubmit"
+      @reset="onReset"
+      class="form_1"
+    >
+      <q-input
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        filled
+        v-model="name"
+        label="Your name *"
+        hint="First Name and Last Name"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
+      />
+
+      <q-input
+        filled
+        type="number"
+        v-model="age"
+        label="Your age *"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || 'Please type your age',
+          val => val > 0 && val < 100 || 'Please type a real age'
+        ]"
+      />
+      <q-select
+        filled
+        outlined
+        v-model="category"
+        :options="options"
+        label="Select what are you *"
+        lazy-rules
+        :rule="[val => val.length < 3 || 'Please select a choice']"
+      />
+
+      <q-toggle v-model="accept" label="I accept the license and terms" />
+
+      <div>
+        <q-btn label="Submit" type="submit" color="primary"/>
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-sapce />
+        <q-btn flat label="Already have an account?" @click="registration=false,login=true"/>
+      </div>
+    </q-form>
+
+  </div>
+  </div>
+    </q-dialog>
+    <q-dialog v-model="login">
+      <div class="q-pa-md" style="max-width: 600px width: 100%">
+      <div class="form">
+      <div class="heading1">
+      <q-avatar font-size="82px">
+          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+        </q-avatar>
+      Login
+      </div>
+      <q-seprator dark horizontal/>
+    <q-form
+      position="center"
+      @submit="onSubmit"
+      @reset="onReset"
+      class="form_1"
+    >
+      <q-input
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        filled
+        v-model="username"
+        label="Email/Mobile"
+        hint="Enter email or mob. no"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
+      />
+
+      <q-input
+        filled
+        type="password"
+        v-model="password"
+        label="Password"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
+      />
+      <div>
+        <q-btn label="Login" type="submit" color="primary"/>
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-space />
+        <q-btn flat label="Don't have an account?" @click="registration=true,login=false"/>
+      </div>
+    </q-form>
+
+  </div>
+  </div>
+    </q-dialog>
   </q-layout>
 </template>
 
 <script>
-import { openURL } from 'quasar'
 
 export default {
   name: 'MyLayout',
   data () {
     return {
+      registration: true,
+      login: false,
       drawer: true,
       miniState: true,
       text: 'Search',
@@ -167,12 +277,16 @@ export default {
     }
   },
   methods: {
-    openURL
+    home () {
+      this.$router.push('/')
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.heading1
+ padding 10px
 .search-bar
   padding 10px
 .btn:hover
@@ -190,4 +304,12 @@ export default {
   padding 30px 30px
 .col3
   text-align centre
+.d-btn
+  background-color primary
+.d-btn:hover
+  color black
+  bg-color white
+.form
+  background-color white
+  padding 20px 20px
 </style>

@@ -55,13 +55,18 @@ module.exports = function (ctx) {
         'QSpace',
         'QFooter',
         'QList',
-      'QItem',
-      'QItemSection',
-      'QItemLabel'  
+        'QItem',
+        'QItemSection',
+        'QItemLabel',
+        'QForm',
+        'QToggle',
+        'QBtnDropdown',
+        'QDialog'
       ],
 
       directives: [
-        'Ripple'
+        'Ripple',
+        'ClosePopup'
       ],
 
       // Quasar plugins
@@ -99,7 +104,8 @@ module.exports = function (ctx) {
     },
 
     // animations: 'all', // --- includes all animations
-    animations: [],
+    animations: ['bounceInLeft',
+  'bounceOutRight'  ],
 
     ssr: {
       pwa: false

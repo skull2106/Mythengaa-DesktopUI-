@@ -8,12 +8,11 @@
       animated
       v-model="slide"
       arrows
-      navigation
       infinite
       swipeable
       thumbnails-icon
     >
-      <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
+      <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/parallax1.jpg"/>
       <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
       <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/mountains.jpg" />
       <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
@@ -50,10 +49,15 @@
   </q-page>
 </template>
 <style lang="stylus" scoped>
+.custom-caption
+  text-align center
+  padding 12px
+  color white
+  background-color rgba(0, 0, 0, .3)
 .carousel
   padding 10px
 .my-card
-  background black
+  background orange
   color white
   padding 10px
   width 100%
