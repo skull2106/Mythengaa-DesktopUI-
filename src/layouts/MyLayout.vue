@@ -78,7 +78,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple >
               <q-item-section avatar>
                 <q-icon name="send" />
               </q-item-section>
@@ -104,7 +104,7 @@
           default-closed
         >
 
-          <q-expansion-item switch-toggle-side dense-toggle label="Sub-category 1" :header-inset-level="0" :content-inset-level="0">
+          <q-expansion-item @click="subcategory1" switch-toggle-side dense-toggle label="Sub-category 1" :header-inset-level="0" :content-inset-level="0">
           </q-expansion-item>
 
           <q-expansion-item  switch-toggle-side dense-toggle label="Sub-category 2" :header-inset-level="0" :content-inset-level="0">
@@ -153,7 +153,7 @@
       <q-avatar font-size="82px">
           <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
         </q-avatar>
-      Mythengaa
+      Registration
       </div>
       <q-seprator dark horizontal/>
     <q-form
@@ -277,6 +277,9 @@ export default {
     }
   },
   methods: {
+    subcategory1 () {
+      this.$router.push('/subcategory1')
+    },
     home () {
       this.$router.push('/')
     }
@@ -287,6 +290,7 @@ export default {
 <style lang="stylus" scoped>
 .heading1
  padding 10px
+ font-size 20px
 .search-bar
   padding 10px
 .btn:hover

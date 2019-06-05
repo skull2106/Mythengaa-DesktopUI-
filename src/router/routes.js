@@ -1,6 +1,20 @@
 
 const routes = [
   {
+    path: '/studentcorner',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/studentcorner.vue') }
+    ]
+  },
+  {
+    path: '/subcategory1',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/subcategory1.vue') }
+    ]
+  },
+  {
     path: '/registration',
     component: () => import('layouts/MyLayout.vue'),
     children: [
