@@ -12,7 +12,7 @@
           <q-icon name="menu" />
         </q-btn>
         <q-avatar font-size="82px">
-          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+          <img src="https://mythengaa.com/images/logo_thenga.png">
         </q-avatar>
         <q-toolbar-title shrink width="fit">
           Mythengaa
@@ -60,7 +60,7 @@
             </q-item>
             <q-item clickable v-ripple @click="login=true">
               <q-item-section avatar>
-                <q-icon name="mail" />
+                <q-icon name="img:https://image.flaticon.com/icons/svg/60/60473.svg" />
               </q-item-section>
 
               <q-item-section>
@@ -70,7 +70,7 @@
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="star" />
+                <q-icon name="img:https://image.flaticon.com/icons/svg/126/126486.svg" />
               </q-item-section>
 
               <q-item-section>
@@ -80,7 +80,7 @@
 
             <q-item clickable v-ripple >
               <q-item-section avatar>
-                <q-icon name="send" />
+                <q-icon name="img:https://image.flaticon.com/icons/svg/1289/1289376.svg" />
               </q-item-section>
 
               <q-item-section>
@@ -92,14 +92,14 @@
 
             <q-expansion-item
         expand-separator
-        icon="mail"
+        icon="img:https://image.flaticon.com/icons/svg/262/262611.svg"
         label="Categories"
         default-closed
       >
         <q-expansion-item
           :header-inset-level="0"
           expand-separator
-          icon="receipt"
+          icon="img:https://image.flaticon.com/icons/svg/32/32213.svg"
           label="Category-1"
           default-closed
         >
@@ -111,7 +111,7 @@
           </q-expansion-item>
 
         </q-expansion-item>
-        <q-expansion-item :header-inset-level="0" :content-inset-level="0" expand-separator icon="receipt" label="Category-2">
+        <q-expansion-item :header-inset-level="0" :content-inset-level="0" expand-separator icon="img:https://image.flaticon.com/icons/svg/32/32213.svg" label="Category-2">
         </q-expansion-item>
 
       </q-expansion-item>
@@ -120,9 +120,18 @@
       </q-drawer>
     <q-page-container>
       <router-view />
-      <div class ="row-search justify-around">
+      <div class ="row-search row justify-around">
       <div class="q-pa-md bg-grey-10 text-white">
-      <div class="column search">
+      <div class="column2">
+      <q-img
+      :src="url"
+      spinner-color="white"
+      style="height: 140px; max-width: 150px"
+    />
+    </div>
+    </div>
+    <div class="q-pa-md bg-grey-10 text-white">
+    <div class="column2">
     <q-list dark bordered separator style="max-width: 318px">
       <q-item clickable v-ripple>
         <q-item-section>Footer Tasks</q-item-section>
@@ -143,15 +152,58 @@
     </q-list>
   </div>
   </div>
-  <div class="col3"> Property of Saurabh</div>
-      </div>
+  <div class="q-pa-md bg-grey-10 text-white">
+      <div class="column2">
+    <q-list dark bordered separator style="max-width: 318px">
+      <q-item clickable v-ripple>
+        <q-item-section>Footer Tasks</q-item-section>
+      </q-item>
+
+      <q-item clickable v-ripple>
+        <q-item-section>
+          <q-item-label>Task1</q-item-label>
+        </q-item-section>
+      </q-item>
+
+      <q-item clickable v-ripple>
+        <q-item-section>
+          <q-item-label overline>Task2</q-item-label>
+          <q-item-label>Some Caption</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-list>
+  </div>
+  </div>
+  <div class="q-pa-md bg-grey-10 text-white">
+      <div class="column2">
+    <q-list dark bordered separator style="max-width: 318px">
+      <q-item clickable v-ripple>
+        <q-item-section>Footer Tasks</q-item-section>
+      </q-item>
+
+      <q-item clickable v-ripple>
+        <q-item-section>
+          <q-item-label>Task1</q-item-label>
+        </q-item-section>
+      </q-item>
+
+      <q-item clickable v-ripple>
+        <q-item-section>
+          <q-item-label overline>Task2</q-item-label>
+          <q-item-label>Some Caption</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-list>
+  </div>
+  </div>
+  </div>
     </q-page-container>
     <q-dialog v-model="registration">
       <div class="q-pa-md" style="max-width: 500px">
       <div class="form">
       <div class="heading1">
       <q-avatar font-size="82px">
-          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+          <img src="https://mythengaa.com/images/logo_thenga.png">
         </q-avatar>
       Registration
       </div>
@@ -213,7 +265,7 @@
       <div class="form">
       <div class="heading1">
       <q-avatar font-size="82px">
-          <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+          <img src="https://mythengaa.com/images/logo_thenga.png">
         </q-avatar>
       Login
       </div>
@@ -269,6 +321,7 @@ export default {
       drawer: true,
       miniState: true,
       text: 'Search',
+      url: 'https://mythengaa.com/images/logo_thengaa.png',
       leftDrawerOpen: this.$q.platform.is.desktop,
       model: null,
       options: [
@@ -305,8 +358,8 @@ export default {
   color white
 .row-search
   background-color #252525
-  padding 30px 30px
-.col3
+  padding 10px 10px
+.column
   text-align centre
 .d-btn
   background-color primary
@@ -316,4 +369,9 @@ export default {
 .form
   background-color white
   padding 20px 20px
+.coloumn2
+  padding 10px 10px
+  width 100%
+  color red
+  max-width 350px
 </style>
