@@ -3,7 +3,7 @@
 <div>
   <div class="q-pa-md">
     <q-carousel
-     height="600px"
+     height="200px"
       animated
       v-model="slide"
       arrows

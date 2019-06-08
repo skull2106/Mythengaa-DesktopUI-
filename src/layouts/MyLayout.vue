@@ -1,106 +1,25 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="shadow-2 rounded-borders">
     <q-header elevated reveal>
-      <q-toolbar class="glossy">
-        <q-btn
-          flat
-          dense
-          round
-          @click="drawer = !drawer"
-          aria-label="Menu"
-        >
-          <q-icon name="menu" />
-        </q-btn>
+      <q-toolbar shrink class="glossy">
+       <q-btn  class="d-btn" icon="home" flat @click="home"/>
+        <q-toolbar-title shrink>
         <q-avatar font-size="82px">
           <img src="https://mythengaa.com/images/logo_thenga.png">
         </q-avatar>
-        <q-toolbar-title shrink width="fit">
           Mythengaa
         </q-toolbar-title>
-        <q-separator />
-        <div class="search-bar">
-        <q-input bg-color="white" dense standout v-model="text" input-class="text-right" class="q-ml-md">
-          <template v-slot:append>
-            <q-icon v-if="text === ''" name="search" />
-            <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
-          </template>
-        </q-input>
-        </div>
-        <q-seprator />
-        <q-separator dark vertical />
-        <div class="btn">
-      <q-btn stretch flat class="d-btn" label="Sign Up/Login" @click="registration = true" />
-      </div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-        v-model="drawer"
-
-        :mini="miniState"
-        @mouseover="miniState = false"
-        @mouseout="miniState = true"
-
-        :width="200"
-        :breakpoint="500"
-        show-if-above
-        bordered
-        content-class="bg-grey-3"
-      >
-        <q-scroll-area class="fit">
-          <q-list padding>
-          <q-item @click="home" active clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="home" />
-              </q-item-section>
-
-              <q-item-section>
-                Home
-              </q-item-section>
-            </q-item>
-            <q-item clickable v-ripple @click="login=true">
-              <q-item-section avatar>
-                <q-icon name="img:https://image.flaticon.com/icons/svg/60/60473.svg" />
-              </q-item-section>
-
-              <q-item-section>
-                Sign Up/Login
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="img:https://image.flaticon.com/icons/svg/126/126486.svg" />
-              </q-item-section>
-
-              <q-item-section>
-                My Account
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple >
-              <q-item-section avatar>
-                <q-icon name="img:https://image.flaticon.com/icons/svg/1289/1289376.svg" />
-              </q-item-section>
-
-              <q-item-section>
-                Advertise
-              </q-item-section>
-            </q-item>
-
-            <q-separator />
-
-            <q-expansion-item
-        expand-separator
-        icon="img:https://image.flaticon.com/icons/svg/262/262611.svg"
-        label="Categories"
-        default-closed
-      >
+        <q-btn class="d-btn" icon-right="img:https://image.flaticon.com/icons/svg/262/262611.svg" flat label="Categories">
+        <q-menu
+          transition-show="jump-down"
+          transition-hide="jump-up"
+        >
+          <q-list style="min-width: 100px">
         <q-expansion-item
           :header-inset-level="0"
           expand-separator
-          icon="img:https://image.flaticon.com/icons/svg/32/32213.svg"
-          label="Category-1"
+          icon="img:https://image.flaticon.com/icons/svg/327/327131.svg"
+          label="Schools"
           default-closed
         >
 
@@ -111,89 +30,157 @@
           </q-expansion-item>
 
         </q-expansion-item>
-        <q-expansion-item :header-inset-level="0" :content-inset-level="0" expand-separator icon="img:https://image.flaticon.com/icons/svg/32/32213.svg" label="Category-2">
+        <q-expansion-item :header-inset-level="0" :content-inset-level="0" expand-separator icon="img:https://image.flaticon.com/icons/svg/328/328062.svg" label="Legal">
         </q-expansion-item>
-
-      </q-expansion-item>
           </q-list>
-        </q-scroll-area>
-      </q-drawer>
+          </q-menu>
+      </q-btn>
+        <div class="search-bar">
+        <q-input dense bg-color="white" standout hide-bottom-space v-model="text" input-class="text-right" class="q-ml-md" style="max-width: 700px">
+          <template v-slot:append>
+            <q-icon v-if="text === ''" name="search" />
+            <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
+          </template>
+        </q-input>
+        </div>
+    <q-btn color="blue" icon="search"/>
+        <div class="d-btn">
+        <q-btn no-focus class="d-btn" icon="img:https://image.flaticon.com/icons/svg/484/484167.svg" icon-right="img:https://image.flaticon.com/icons/svg/118/118738.svg" flat label="Location">
+        <q-menu
+          transition-show="jump-down"
+          transition-hide="jump-up"
+          cover anchor="top middle"
+        >
+          <q-list style="min-width: 200px">
+            <q-item clickable>
+              <q-item-section>Jaipur</q-item-section>
+            </q-item>
+            <q-item dense clickable>
+              <q-item-section>Ajmer</q-item-section>
+            </q-item>
+            <q-separator />
+            <q-item clickable>
+              <q-item-section>Other</q-item-section>
+            </q-item>
+          </q-list>
+        </q-menu>
+      </q-btn>
+      </div>
+        <q-space />
+        <q-separator dark vertical />
+        <div class="d-btn">
+        <q-btn no-focus class="d-btn" icon-right="img:https://image.flaticon.com/icons/svg/118/118738.svg" flat label="More">
+        <q-menu
+          transition-show="jump-down"
+          transition-hide="jump-up"
+        >
+          <q-list style="min-width: 200px">
+            <q-item clickable>
+              <q-item-section avatar>
+          <q-icon name="img:https://image.flaticon.com/icons/svg/126/126472.svg" />
+        </q-item-section>
+              <q-item-section>My Account</q-item-section>
+            </q-item>
+            <q-item dense clickable>
+            <q-item-section avatar>
+          <q-icon name="img:https://image.flaticon.com/icons/svg/33/33308.svg" />
+        </q-item-section>
+              <q-item-section>Sign Up/Login</q-item-section>
+            </q-item>
+            <q-separator />
+            <q-item clickable>
+            <q-item-section avatar>
+          <q-icon name="img:https://image.flaticon.com/icons/svg/25/25694.svg" />
+        </q-item-section>
+              <q-item-section>About Us</q-item-section>
+            </q-item>
+          </q-list>
+        </q-menu>
+      </q-btn>
+      </div>
+      </q-toolbar>
+    </q-header>
     <q-page-container>
       <router-view />
       <div class ="row-search row justify-around">
-      <div class="q-pa-md bg-grey-10 text-white">
-      <div class="column2">
-      <q-img
-      :src="url"
-      spinner-color="white"
-      style="height: 140px; max-width: 150px"
-    />
+      <div class="q-pa-md text-white">
+      <div class="column2 col">
+      <q-icon size="200px" name="img:https://mythengaa.com/images/logo_thengaa.png" />
     </div>
     </div>
-    <div class="q-pa-md bg-grey-10 text-white">
-    <div class="column2">
-    <q-list dark bordered separator style="max-width: 318px">
-      <q-item clickable v-ripple>
-        <q-item-section>Footer Tasks</q-item-section>
+    <div class="q-pa-md text-white">
+    <div class="column2 col">
+    <q-list dark style="width: 218px">
+      <q-item>
+        <q-item-section><div style="font-size: 24px">MENU</div></q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-separator dark inset color ="orange"/>
+      <q-item dense clickable v-ripple style="height: 10px" nowrap @click="home">
         <q-item-section>
-          <q-item-label>Task1</q-item-label>
+          <q-item-label>Home</q-item-label>
         </q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-item dense clickable v-ripple>
         <q-item-section>
-          <q-item-label overline>Task2</q-item-label>
-          <q-item-label>Some Caption</q-item-label>
+          <q-item-label>About</q-item-label>
         </q-item-section>
       </q-item>
-    </q-list>
-  </div>
-  </div>
-  <div class="q-pa-md bg-grey-10 text-white">
-      <div class="column2">
-    <q-list dark bordered separator style="max-width: 318px">
-      <q-item clickable v-ripple>
-        <q-item-section>Footer Tasks</q-item-section>
-      </q-item>
-
-      <q-item clickable v-ripple>
+      <q-item dense clickable v-ripple>
         <q-item-section>
-          <q-item-label>Task1</q-item-label>
+          <q-item-label>Services</q-item-label>
         </q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-item dense clickable>
         <q-item-section>
-          <q-item-label overline>Task2</q-item-label>
-          <q-item-label>Some Caption</q-item-label>
+          <q-item-label>Contact</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
   </div>
   </div>
-  <div class="q-pa-md bg-grey-10 text-white">
-      <div class="column2">
-    <q-list dark bordered separator style="max-width: 318px">
-      <q-item clickable v-ripple>
-        <q-item-section>Footer Tasks</q-item-section>
+  <div class="q-pa-md text-white">
+    <div class="column2 col">
+    <q-list dark style="width: 218px">
+      <q-item>
+        <q-item-section><div style="font-size: 24px">GENERAL</div></q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-separator dark inset color ="orange"/>
+      <q-item dense clickable v-ripple style="height: 10px" nowrap>
         <q-item-section>
-          <q-item-label>Task1</q-item-label>
+          <q-item-label>Terms of Use</q-item-label>
         </q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-item dense clickable v-ripple>
         <q-item-section>
-          <q-item-label overline>Task2</q-item-label>
-          <q-item-label>Some Caption</q-item-label>
+          <q-item-label>Refund Policies</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-item dense clickable v-ripple>
+        <q-item-section>
+          <q-item-label>Get Listed</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-item dense clickable>
+        <q-item-section>
+          <q-item-label>User Aggrement</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
+  </div>
+  </div>
+  <div class="q-pa-md text-white">
+    <div class="column2 col">
+    <q-list dark style="max-width: 350px">
+      <q-item>
+        <q-item-section><div style="font-size: 24px">Stay Connected</div></q-item-section>
+      </q-item>
+      <q-separator spaced dark inset color ="orange"/>
+    </q-list>
+    <div class="q-pa-md q-gutter-sm">
+    <q-btn round color="white" icon="img:https://image.flaticon.com/icons/svg/733/733614.svg" />
+    <q-btn round color="white" icon="img:https://image.flaticon.com/icons/svg/747/747374.svg" />
+    <q-btn round color="white" icon="img:https://image.flaticon.com/icons/svg/12/12194.svg" />
+    </div>
   </div>
   </div>
   </div>
@@ -261,7 +248,7 @@
   </div>
     </q-dialog>
     <q-dialog v-model="login">
-      <div class="q-pa-md" style="max-width: 600px width: 100%">
+      <div class="q-pa-md" style="max-width: 500px">
       <div class="form">
       <div class="heading1">
       <q-avatar font-size="82px">
@@ -290,14 +277,14 @@
 
       <q-input
         filled
-        type="password"
+        type="text"
         v-model="password"
         label="Password"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type something']"
       />
-      <div>
-        <q-btn label="Login" type="submit" color="primary"/>
+      <div class="row">
+        <q-btn label="Login" @click="logincheck" color="primary"/>
         <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
         <q-space />
         <q-btn flat label="Don't have an account?" @click="registration=true,login=false"/>
@@ -316,6 +303,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
+
       registration: true,
       login: false,
       drawer: true,
@@ -324,12 +312,60 @@ export default {
       url: 'https://mythengaa.com/images/logo_thengaa.png',
       leftDrawerOpen: this.$q.platform.is.desktop,
       model: null,
+      category: null,
       options: [
-        'Jaipur', 'Ajmer', 'Bewar', 'Jodhpur', 'Udaipur'
-      ]
+        'Seller', 'Customer'],
+      name: null,
+      age: null,
+      accept: false,
+      username: null,
+      password: null
     }
   },
   methods: {
+    logincheck () {
+      if (this.username === 'skull' && this.password === '123') {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'fas fa-exclamation-triangle',
+          message: 'Account verified'
+        })
+      } else {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'fas fa-exclamation-triangle',
+          message: 'Your accound doesnt exist'
+        })
+      }
+    },
+    onSubmit () {
+      if (this.accept !== true) {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'fas fa-exclamation-triangle',
+          message: 'You need to accept the license and terms first'
+        })
+      } else {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'fas fa-check-circle',
+          message: 'Submitted'
+        })
+      }
+    },
+
+    onReset () {
+      this.username = null
+      this.password = null
+      this.name = null
+      this.age = null
+      this.category = null
+      this.accept = false
+    },
     subcategory1 () {
       this.$router.push('/subcategory1')
     },
@@ -342,36 +378,23 @@ export default {
 
 <style lang="stylus" scoped>
 .heading1
- padding 10px
- font-size 20px
-.search-bar
   padding 10px
-.btn:hover
-  background-color white
-  text-align centre
-  color black
-.btn
-  background-color primary
-  text-align centre
-  padding 14px 16px
-  font-size 18px
-  color white
+  font-size 20px
+.search-bar
+  padding 10px 0px
+  width 700px
 .row-search
   background-color #252525
-  padding 10px 10px
+  padding 10px 50px
 .column
   text-align centre
 .d-btn
+  color black
   background-color primary
 .d-btn:hover
   color black
-  bg-color white
+  background-color primary
 .form
   background-color white
   padding 20px 20px
-.coloumn2
-  padding 10px 10px
-  width 100%
-  color red
-  max-width 350px
 </style>

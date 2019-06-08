@@ -1,10 +1,9 @@
 <template>
 <q-page padding>
-
-<div>
+  <div>
   <div class="carousel">
     <q-carousel
-     height="600px"
+     height="400px"
       animated
       v-model="slide"
       arrows
@@ -19,36 +18,160 @@
     </q-carousel>
   </div>
   </div>
-  <div class="row-card">
-  <div class="col1">
+  <div class="row-card q-gutter-sm row q-pa-md no-wrap">
   <q-card class="my-card">
-      <q-card-section>
-        <div class="text-h6">New to our Site</div>
-        <div class="text-subtitle2">Register now</div>
-      </q-card-section>
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
 
-      <q-card-actions>
-        <q-btn flat>Action 1</q-btn>
-        <q-btn flat>Action 2</q-btn>
-      </q-card-actions>
-    </q-card>
-    </div>
-    <div>
-    <q-card class="my-card2">
       <q-card-section>
-        <div class="text-h6">Task2</div>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
       </q-card-section>
+      </q-card>
+    <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
 
-      <q-card-actions>
-        <q-btn flat>Action 1</q-btn>
-        <q-btn flat>Action 2</q-btn>
-      </q-card-actions>
-    </q-card>
-    </div>
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div >
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
+      <q-card inline class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card>
     </div>
   </q-page>
 </template>
 <style lang="stylus" scoped>
+.row-card
+  overflow-y hidden
+  overflow-x scroll
+  white-space nowrap
+  padding 10px
 .custom-caption
   text-align center
   padding 12px
@@ -57,21 +180,13 @@
 .carousel
   padding 10px
 .my-card
-  background orange
-  color white
-  padding 10px
-  width 100%
-  max-width 250px
-  height 300px
-.my-card2
+  display inline-block
   background white
   color black
   padding 10px
   width 100%
   max-width 350px
-  height 350px
-.row-card
-  padding 10px
+  height 300px
 .col1
  padding 15px 0px
 </style>
@@ -79,6 +194,7 @@
 export default {
   data () {
     return {
+      ratingModel: 3,
       text: '',
       model: null,
       slide: 1
