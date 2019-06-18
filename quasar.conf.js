@@ -5,7 +5,9 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
-      'axios'
+      'axios',
+      { path: 'vue-awesome-swiper', server: false },
+      { path: 'firebase', server: false }
     ],
 
     css: [
@@ -61,8 +63,21 @@ module.exports = function (ctx) {
         'QForm',
         'QToggle',
         'QBtnDropdown',
-        'QDialog'
-      ],
+        'QDialog',
+        'QRating',
+        'QTabs',
+        'QTab',
+        'QRouteTab',
+        'QTabPanels',
+        'QTabPanel',
+        'QImg',
+        'QMenu',
+        'QScrollArea',
+        'QCheckbox',
+        'QNoSsr',
+        'QBreadcrumbs',
+        'QBreadcrumbsEl'
+        ],
 
       directives: [
         'Ripple',
@@ -71,7 +86,7 @@ module.exports = function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Notify'
+      'Notify'
       ]
 
       // iconSet: 'ionicons-v4'
@@ -118,6 +133,7 @@ module.exports = function (ctx) {
         // name: 'Quasar App',
         // short_name: 'Quasar-PWA',
         // description: 'Best PWA App in town!',
+	     gcm_sender_id: '103953800507',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

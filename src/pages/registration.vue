@@ -1,110 +1,86 @@
 <template>
 <q-page>
-<div class ="registration-form">
-<div class="q-pa-md" style="max-width: 500px">
+<q-no-ssr>
+      <swiper :options="swiperOption">
+        <swiper-slide><q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
 
-    <q-form
-      position="center"
-      @submit="onSubmit"
-      @reset="onReset"
-      class="form_1"
-    >
-      <q-input
-        autocapitalize="off"
-        autocomplete="off"
-        spellcheck="false"
-        filled
-        v-model="name"
-        label="Your name *"
-        hint="First Name and Last Name"
-        lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type something']"
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
       />
-
-      <q-input
-        filled
-        type="number"
-        v-model="age"
-        label="Your age *"
-        lazy-rules
-        :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
-        ]"
-      />
-      <q-select
-        filled
-        outlined
-        v-model="category"
-        :options="options"
-        label="Select what are you *"
-        lazy-rules
-        :rule="[val => val.length < 3 || 'Please select a choice']"
-      />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-        <q-sapce />
-        <q-btn flat label="Already have an account?" />
       </div>
-    </q-form>
+      </q-card-section>
+      </q-card></swiper-slide>
+        <swiper-slide><q-card class="my-card">
+      <img src="https://cdn.quasar.dev/img/mountains.jpg">
 
-  </div>
-  </div>
-</q-page>
+      <q-card-section>
+        <div class="text-h6">Student Corner</div>
+        <div class="text-subtitle2">Mahesh Nagar</div>
+        <div class="q-gutter-y-md column">
+      <q-rating
+        v-model="ratingModel"
+        size="2em"
+        color="orange"
+        readonly
+      />
+      </div>
+      </q-card-section>
+      </q-card></swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+</q-no-ssr>
+  </q-page>
 </template>
+
 <script>
 export default {
   data () {
     return {
-      category: null,
-      options: [
-        'Seller', 'Customer'],
-      name: null,
-      age: null,
-
-      accept: false
-    }
-  },
-
-  methods: {
-    onSubmit () {
-      if (this.accept !== true) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'fas fa-exclamation-triangle',
-          message: 'You need to accept the license and terms first'
-        })
-      } else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'fas fa-check-circle',
-          message: 'Submitted'
-        })
+      swiperOption: {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        }
       }
-    },
-
-    onReset () {
-      this.name = null
-      this.age = null
-      this.category = null
-      this.accept = false
     }
   }
 }
 </script>
-<style lang="stylus" scoped>
-.form_1
- border-style groove
- padding 20px 25px
- border-width 2px
- float centre
-.registration-form
- float centre
- padding 15% 25% 20% 35%
+
+<style scoped>
+  .swiper-inner {
+    width: 100%;
+    height: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
 </style>
